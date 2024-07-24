@@ -19,7 +19,8 @@ import (
 	"fmt"
 
 	"github.com/casbin/casbin/log"
-	"github.com/casbin/casbin/rbac"
+	log2 "github.com/casbin/casbin/v2/log"
+	"github.com/casbin/casbin/v2/rbac"
 	"github.com/casbin/go-auth0/auth0"
 )
 
@@ -30,11 +31,46 @@ type RoleManager struct {
 	tenant       string
 	apiEndpoint  string
 
-	nameToIDMap  map[string]string
-	idToNameMap  map[string]string
+	nameToIDMap map[string]string
+	idToNameMap map[string]string
 
-	mgmtClient   *auth0.Auth0
-	authzClient   *auth0.Auth0
+	mgmtClient  *auth0.Auth0
+	authzClient *auth0.Auth0
+}
+
+func (rm *RoleManager) BuildRelationship(name1 string, name2 string, domain ...string) error {
+	// TODO implement me
+	panic("implement me")
+}
+
+func (rm *RoleManager) GetDomains(name string) ([]string, error) {
+	// TODO implement me
+	panic("implement me")
+}
+
+func (rm *RoleManager) GetAllDomains() ([]string, error) {
+	// TODO implement me
+	panic("implement me")
+}
+
+func (rm *RoleManager) SetLogger(logger log2.Logger) {
+	// TODO implement me
+	panic("implement me")
+}
+
+func (rm *RoleManager) Match(str string, pattern string) bool {
+	// TODO implement me
+	panic("implement me")
+}
+
+func (rm *RoleManager) AddMatchingFunc(name string, fn rbac.MatchingFunc) {
+	// TODO implement me
+	panic("implement me")
+}
+
+func (rm *RoleManager) AddDomainMatchingFunc(name string, fn rbac.MatchingFunc) {
+	// TODO implement me
+	panic("implement me")
 }
 
 // NewRoleManager is the constructor of an Auth0 RoleManager instance.
@@ -116,7 +152,7 @@ func (rm *RoleManager) getAuth0UserGroups(name string) ([]string, error) {
 		return nil, err
 	}
 
-	for _,  group := range groups {
+	for _, group := range groups {
 		res = append(res, group.Name)
 	}
 	return res, nil
@@ -134,7 +170,7 @@ func (rm *RoleManager) getAuth0GroupUsers(name string) ([]string, error) {
 		return nil, err
 	}
 
-	for _,  user := range members.Users {
+	for _, user := range members.Users {
 		res = append(res, user.Email)
 	}
 	return res, nil
