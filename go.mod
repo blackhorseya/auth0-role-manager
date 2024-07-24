@@ -3,7 +3,6 @@ module github.com/blackhorseya/auth0-role-manager
 go 1.22.1
 
 require (
-	github.com/casbin/casbin v1.9.1
 	github.com/casbin/casbin/v2 v2.98.0
 	github.com/casbin/go-auth0 v0.0.0-20190628140123-422fbdfa2312
 )

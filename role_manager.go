@@ -18,7 +18,7 @@ import (
 	"errors"
 	"fmt"
 
-	log2 "github.com/casbin/casbin/v2/log"
+	"github.com/casbin/casbin/v2/log"
 	"github.com/casbin/casbin/v2/rbac"
 	"github.com/casbin/go-auth0/auth0"
 )
@@ -79,7 +79,7 @@ func (rm *RoleManager) GetAllDomains() ([]string, error) {
 	panic("implement me")
 }
 
-func (rm *RoleManager) SetLogger(logger log2.Logger) {
+func (rm *RoleManager) SetLogger(logger log.Logger) {
 	// TODO implement me
 	panic("implement me")
 }
